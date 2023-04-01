@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue JS</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body{
+            display: grid;
+            place-items: center;
+        }
+
+        .text-red{
+            color: red;
+        }
+
+        .text-green{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <!-- <p>
+            <input type="text" v-model="greeting">
+        </p>
+        <p>
+            {{ greeting }} ({{ greeting.length }})
+        </p> -->
+        <button :class="active ? 'text-green' : 'text-red'" @click="toggle">Click Me</button>
+    </div>
+
+    <script>
+        Vue.createApp({
+            // data(){
+            //     return {
+            //         greeting: 'What is up'
+            //     }
+            // },
+
+            // mounted(){
+            //     setTimeout(() => {
+            //         this.greeting = 'Changed'
+            //     }, 3000)
+            // }
+            data(){
+                return{
+                    active: true
+                }
+            },
+
+            methods:{
+                toggle(){
+                    this.active = ! this.active
+                }
+            }
+
+
+        }).mount('#app');
+    </script>
+</body>
+</html>
